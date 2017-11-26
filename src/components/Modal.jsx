@@ -129,14 +129,33 @@ class Modal extends Component {
 };
 
 Modal.propTypes = {
-	backdropAnimationIn: PropTypes.object,
-	backdropAnimationOut: PropTypes.object,
-	modalAnimationIn: PropTypes.object,
-	modalAnimationOut: PropTypes.object,
-	backdropStyle: PropTypes.object,
-	titleStyle: PropTypes.object,
-	bodyStyle: PropTypes.object,
-	closeBtnStyle: PropTypes.object,
+	style: PropTypes.objectOf({
+		backdropAnimationIn: PropTypes.object,
+		backdropAnimationOut: PropTypes.object,
+		modalAnimationIn: PropTypes.object,
+		modalAnimationOut: PropTypes.object,
+		backdrop: PropTypes.object,
+		title: PropTypes.object,
+		body: PropTypes.object,
+		closeBtn: PropTypes.object,
+	}),
+	title: PropTypes.string,
+	children: PropTypes.object,
+	open: PropTypes.bool,
+	toggleModal: PropTypes.func,
+};
+
+Modal.defaultProps = {
+	style: {
+		backdropAnimationIn: '',
+		backdropAnimationOut: '',
+		modalAnimationIn: '',
+		modalAnimationOut: '',
+		backdrop: '',
+		title: '',
+		body: '',
+		closeBtn: '',
+	},
 };
 
 export default Modal;
